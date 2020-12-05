@@ -71,3 +71,4 @@ class User():
         bool2 = (abs(curr_point[1] - prev_point[1]) == 1) and (curr_point[0] - prev_point[0] == 0)
         
         return bool1 or bool2
+        

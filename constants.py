@@ -1,5 +1,6 @@
 import pygame
 
+# dimensions
 WIDTH, HEIGHT = 700, 700
 WIN_WIDTH, WIN_HEIGHT = 1000, HEIGHT
 ROWS, COLS = 7, 7

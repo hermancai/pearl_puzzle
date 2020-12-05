@@ -3,9 +3,8 @@ from constants import WIDTH, HEIGHT, WIN_WIDTH, WIN_HEIGHT, WHITE
 from board import Board
 from user import User
 
-FPS = 30
 
-# WINDOW = pygame.display.set_mode((WIDTH, HEIGHT))
+FPS = 30
 WINDOW = pygame.display.set_mode((WIN_WIDTH, WIN_HEIGHT))
 pygame.display.set_caption("Pearl Puzzle")
 
@@ -17,7 +16,7 @@ def main():
     board = Board()
     user = User()
 
-    board.draw(WINDOW)
+    board.draw_board(WINDOW)
     pygame.display.update()
 
     while running:
@@ -26,9 +25,11 @@ def main():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
-                
+            
+            # when user clicks the mouse
             if event.type == pygame.MOUSEBUTTONDOWN:
                 mouse_pos = pygame.mouse.get_pos()
+
                 # if user clicks on a square in the puzzle grid
                 if mouse_pos[0] <= WIDTH and mouse_pos[1] <= HEIGHT:
                     coords = user.get_coords_from_mouse(mouse_pos)
@@ -41,3 +42,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    
