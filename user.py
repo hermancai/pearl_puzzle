@@ -7,28 +7,24 @@ class User():
 
     def get_coords_from_mouse(self, mouse_pos):
         x, y = mouse_pos
-
         row = y // SQUARE_SIZE
         col = x // SQUARE_SIZE
 
-        self.path.append((row, col))
-            
-        return row, col
+        self.path.append((row, col))    
+        return (row, col)
 
-    def draw_path(self, window, row, col):
+    def draw_path(self, window, coords):
         if len(self.path) == 1:  # the starting point
-            self.draw_point(window, row, col, GREEN)
+            self.draw_point(window, coords, GREEN, SQUARE_SIZE * 0.4 // 2)
         else:  # draw new point and line to previous point
             if self.valid_move(self.path[-2], self.path[-1]) is True:
-                self.draw_point(window, row, col, BLUE)
-                self.draw_line(window, (self.path[-2][0], self.path[-2][1]), (row, col))
+                self.draw_point(window, coords, BLUE, SQUARE_SIZE * 0.2 // 2)
+                self.draw_line(window, (self.path[-2]), coords)
             else:  # move is invalid
                 del self.path[-1]
 
-    def draw_point(self, window, row, col, color):
-        radius = SQUARE_SIZE * 0.2 // 2
-        row += 1
-        col += 1
+    def draw_point(self, window, coords, color, radius):
+        row, col = coords[0] + 1, coords[1] + 1
         x = (col*SQUARE_SIZE) - (SQUARE_SIZE // 2)
         y = (row*SQUARE_SIZE) - (SQUARE_SIZE // 2)
         pygame.draw.circle(window, color, (x, y), radius)

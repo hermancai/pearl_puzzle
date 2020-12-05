@@ -31,8 +31,8 @@ def main():
                 mouse_pos = pygame.mouse.get_pos()
                 # if user clicks on a square in the puzzle grid
                 if mouse_pos[0] <= WIDTH and mouse_pos[1] <= HEIGHT:
-                    row, col = user.get_coords_from_mouse(mouse_pos)
-                    user.draw_path(WINDOW, row, col)
+                    coords = user.get_coords_from_mouse(mouse_pos)
+                    user.draw_path(WINDOW, coords)
                     pygame.display.update()
 
     print(user.path)
