@@ -1,0 +1,12 @@
+import pygame
+
+WIDTH, HEIGHT = 700, 700
+WIN_WIDTH, WIN_HEIGHT = 1000, HEIGHT
+ROWS, COLS = 7, 7
+SQUARE_SIZE = WIDTH//COLS
+
+# colors
+WHITE = (255, 255, 255)
+BLACK = (0, 0, 0)
+BLUE = (0, 98, 255)
+GREEN = (52, 235, 52)
