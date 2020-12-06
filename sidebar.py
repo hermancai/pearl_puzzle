@@ -26,6 +26,7 @@ class Sidebar():
         pygame.draw.rect(window, WHITE, background)
 
     
+    # write the title of the puzzle in the sidebar
     def write_title(self, window):
         # create text object
         string = 'Pearl Puzzle'
@@ -42,10 +43,8 @@ class Sidebar():
         window.blit(title, (left, top))
         
     
+    # write the goals of the puzzle in the sidebar
     def write_goals(self, window):
-        # create text objects
-        font_size = 18
-        font = pygame.font.SysFont('arial', font_size)
         goals_list = []
         goals_list.append('Goal:')
         goals_list.append('Create a closed path that does not cross itself.')
@@ -53,20 +52,11 @@ class Sidebar():
         goals_list.append('Turn at each black pearl and go straight before or after.')
         goals_list.append('Go straight through each white pearl and turn before or after.')
 
-        left = self.spacing + WIDTH
-        self.space_from_top += self.spacing
+        self.write_text(window, goals_list)
 
-        # create and render text object for each string
-        for string in goals_list:
-            top = self.space_from_top
-            window.blit(font.render(string, True, BLACK, WHITE), (left, top))
-            self.space_from_top += font_size + 2
-            
 
+    # write instructions to play the puzzle in the sidebar
     def write_instructions(self, window):
-        # create text objects
-        font_size = 18
-        font = pygame.font.SysFont('arial', font_size)
         instructions = []
         instructions.append('Instructions:')
         instructions.append('Click on a grid square to set your starting point.')
@@ -75,11 +65,18 @@ class Sidebar():
         instructions.append('You can check if your solution is valid at any time.')
         instructions.append('Click the Reset button to refresh the board.')
 
-        left = self.spacing + WIDTH
-        self.space_from_top += self.spacing
+        self.write_text(window, instructions)
 
-        # create and render text object for each string
-        for string in instructions:
+    
+    # create text objects to render on the window given a list of strings
+    def write_text(self, window, text_list):
+        font_size = 18
+        font = pygame.font.SysFont('arial', font_size)
+
+        left = self.spacing + WIDTH  # set left margin
+        self.space_from_top += self.spacing  # update spacing
+
+        for string in text_list:  # create text objects
             top = self.space_from_top
             window.blit(font.render(string, True, BLACK, WHITE), (left, top))
             self.space_from_top += font_size + 2
