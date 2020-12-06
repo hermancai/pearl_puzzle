@@ -1,5 +1,5 @@
 import pygame
-from constants import WIDTH, HEIGHT, WIN_WIDTH, WIN_HEIGHT, BLACK, WHITE
+from constants import WIDTH, HEIGHT, WIN_WIDTH, WIN_HEIGHT, BLACK, WHITE, RED
 
 
 # this class represents the sidebar of rules and buttons next to the puzzle
@@ -10,6 +10,7 @@ class Sidebar():
         self.height = WIN_HEIGHT
         self.spacing = WIN_HEIGHT * 0.05
         self.space_from_top = 0
+        self.button_padding = 10
         
     
     # build the sidebar from top to bottom
@@ -77,6 +78,40 @@ class Sidebar():
         self.space_from_top += self.spacing  # update spacing
 
         for string in text_list:  # create text objects
-            top = self.space_from_top
-            window.blit(font.render(string, True, BLACK, WHITE), (left, top))
+            window.blit(font.render(string, True, BLACK, WHITE), (left, self.space_from_top))
             self.space_from_top += font_size + 2
+
+
+    # draw a button onto the sidebar given the button text and color
+    def draw_button(self, window, button_text, color):
+        self.space_from_top += self.spacing
+
+        # create text object
+        font = pygame.font.SysFont('arial', 20)
+        button = font.render(button_text, True, color, WHITE)
+
+        # get dimensions of text and button rectangle. draw rectangle
+        text_width, text_height = pygame.font.Font.size(font, button_text)
+        rect_width, rect_height = self.draw_button_rect(window, text_width, text_height)
+
+        # draw text
+        left = WIDTH + self.spacing + self.button_padding
+        top = self.space_from_top + self.button_padding
+        window.blit(button, (left, top))
+
+        # return ranges of where button exists on window
+        rect_left = WIDTH + self.spacing
+        rect_top = self.space_from_top
+        self.space_from_top += rect_height
+        return (rect_left, rect_left + rect_width), (rect_top, rect_top + rect_height)
+
+
+    # draw a rectangle to outline a button
+    def draw_button_rect(self, window, text_width, text_height):
+        rect_width = text_width + self.button_padding * 2
+        rect_height = text_height + self.button_padding * 2
+
+        # create and draw rectangle object
+        rect = pygame.Rect(self.spacing + WIDTH, self.space_from_top, rect_width, rect_height)
+        pygame.draw.rect(window, BLACK, rect, 3, 3)
+        return rect_width, rect_height

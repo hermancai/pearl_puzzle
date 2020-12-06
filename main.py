@@ -1,5 +1,5 @@
 import pygame
-from constants import WIDTH, HEIGHT, WIN_WIDTH, WIN_HEIGHT, WHITE
+from constants import WIDTH, HEIGHT, WIN_WIDTH, WIN_HEIGHT, WHITE, BLACK, RED
 from board import Board
 from user import User
 from sidebar import Sidebar
@@ -20,6 +20,9 @@ def main():
 
     board.draw_board(WINDOW)
     sidebar.draw_sidebar(WINDOW)
+    verify_btn_width, verify_btn_height = sidebar.draw_button(WINDOW, 'VERIFY SOLUTION', BLACK)
+    reset_btn_width, reset_btn_height = sidebar.draw_button(WINDOW, 'RESET', RED)
+
     pygame.display.update()
 
     while running:
@@ -38,6 +41,11 @@ def main():
                     coords = user.get_coords_from_mouse(mouse_pos)
                     user.draw_path(WINDOW, coords)
                     pygame.display.update()
+
+                if reset_btn_width[0] <= mouse_pos[0] <= reset_btn_width[1] and reset_btn_height[0] <= mouse_pos[1] <= reset_btn_height[1]:
+                    print("clicked on reset button")
+                    running = False
+                    main()
 
     print(user.path)
     pygame.quit()
