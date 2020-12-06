@@ -2,6 +2,7 @@ import pygame
 from constants import WIDTH, HEIGHT, WIN_WIDTH, WIN_HEIGHT, WHITE
 from board import Board
 from user import User
+from sidebar import Sidebar
 
 
 FPS = 30
@@ -15,8 +16,10 @@ def main():
 
     board = Board()
     user = User()
+    sidebar = Sidebar()
 
     board.draw_board(WINDOW)
+    sidebar.draw_sidebar(WINDOW)
     pygame.display.update()
 
     while running:
@@ -42,4 +45,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    
