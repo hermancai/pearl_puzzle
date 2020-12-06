@@ -8,7 +8,7 @@ class Sidebar():
         pygame.font.init()
         self.width = WIN_WIDTH - WIDTH
         self.height = WIN_HEIGHT
-        self.spacing = WIN_HEIGHT * 0.1
+        self.spacing = WIN_HEIGHT * 0.05
         self.space_from_top = 0
         
     
@@ -16,7 +16,8 @@ class Sidebar():
     def draw_sidebar(self, window):
         self.draw_background(window)
         self.write_title(window)
-        self.write_rules(window)
+        self.write_goals(window)
+        self.write_instructions(window)
 
 
     # create a white background
@@ -36,7 +37,49 @@ class Sidebar():
 
         # update space to place text
         top = self.space_from_top + self.spacing 
-        self.space_from_top += top
+        self.space_from_top += top + y
 
         window.blit(title, (left, top))
         
+    
+    def write_goals(self, window):
+        # create text objects
+        font_size = 18
+        font = pygame.font.SysFont('arial', font_size)
+        goals_list = []
+        goals_list.append('Goal:')
+        goals_list.append('Create a closed path that does not cross itself.')
+        goals_list.append('Pass through each pearl once.')
+        goals_list.append('Turn at each black pearl and go straight before or after.')
+        goals_list.append('Go straight through each white pearl and turn before or after.')
+
+        left = self.spacing + WIDTH
+        self.space_from_top += self.spacing
+
+        # create and render text object for each string
+        for string in goals_list:
+            top = self.space_from_top
+            window.blit(font.render(string, True, BLACK, WHITE), (left, top))
+            self.space_from_top += font_size + 2
+            
+
+    def write_instructions(self, window):
+        # create text objects
+        font_size = 18
+        font = pygame.font.SysFont('arial', font_size)
+        instructions = []
+        instructions.append('Instructions:')
+        instructions.append('Click on a grid square to set your starting point.')
+        instructions.append('Keep clicking to squares to make your path.')
+        instructions.append('You can only move to adjacent squares (up, down, left, right).')
+        instructions.append('You can check if your solution is valid at any time.')
+        instructions.append('Click the Reset button to refresh the board.')
+
+        left = self.spacing + WIDTH
+        self.space_from_top += self.spacing
+
+        # create and render text object for each string
+        for string in instructions:
+            top = self.space_from_top
+            window.blit(font.render(string, True, BLACK, WHITE), (left, top))
+            self.space_from_top += font_size + 2
