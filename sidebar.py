@@ -115,3 +115,19 @@ class Sidebar():
         rect = pygame.Rect(self.spacing + WIDTH, self.space_from_top, rect_width, rect_height)
         pygame.draw.rect(window, BLACK, rect, 3, 3)
         return rect_width, rect_height
+
+    
+    # display on the sidebar whether the solution is correct
+    def display_solution_text(self, text, color, window, rect_width, rect_height):
+        # create and render text object
+        font = pygame.font.SysFont('arial', 20)
+        display = font.render(text, True, color, WHITE)
+        window.blit(display, (rect_width[1] + self.spacing, rect_height[0] + self.button_padding))
+
+
+    # hide the solution text after clicking 'reset' button
+    def hide_solution_text(self, window, rect_width, rect_height):
+        left, top = rect_width[1] + self.spacing, rect_height[0]
+        width, height = rect_width[1] - rect_width[0], rect_height[1] - rect_height[0]
+        rect = pygame.Rect(left, top, width, height)
+        pygame.draw.rect(window, WHITE, rect)

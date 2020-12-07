@@ -55,7 +55,6 @@ class User():
         prev_x, prev_y = self.convert_coords(prev_point)
         curr_x, curr_y = self.convert_coords(curr_point)
 
-        print((prev_x, prev_y), (curr_x, curr_y))
         pygame.draw.line(window, BLUE, (prev_x, prev_y), (curr_x, curr_y), 5)
 
 
