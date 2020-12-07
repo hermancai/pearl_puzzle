@@ -34,16 +34,15 @@ def verify_solution(path, board):
 
 # check if path turns at black pearl and goes straight before and after
 def black_conditions(move, path):
-    if turn_at_black(move, path):
-        if straight_before_after(move, path):
+    index = path.index(move)  # O(n)
+    if turn_at_black(move, path, index):
+        if straight_before_after(move, path, index):
             return True
     return False
 
 
 # check if path turns 90 degrees on a black pearl
-def turn_at_black(move, path):
-    index = path.index(move) # O(n)
-
+def turn_at_black(move, path, index):
     # approached pearl from left/right. Must go top/down next
     if path[index - 1][0] == path[index][0]:
         print("turned at black")
@@ -58,7 +57,7 @@ def turn_at_black(move, path):
 
 
 # check if path is straight before and after reaching black pearl
-def straight_before_after(move, path):
+def straight_before_after(move, path, index):
     return True
 
 
