@@ -64,7 +64,7 @@ class Sidebar():
         instructions.append('Keep clicking on squares to make your path.')
         instructions.append('You can only move to adjacent squares (up, down, left, right).')
         instructions.append('Click on "VERIFY SOLUTION" to verify at any time.')
-        instructions.append('Click on "RESET" button to refresh the board.')
+        instructions.append('Click on "RESET" to refresh the board.')
 
         self.write_text(window, instructions)
 
