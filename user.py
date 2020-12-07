@@ -7,6 +7,10 @@ class User():
         self.path = []
 
 
+    def clear_user_path(self):
+        self.path = []
+
+
     # convert mouse position into grid coords
     def get_coords_from_mouse(self, mouse_pos):
         x, y = mouse_pos

@@ -53,7 +53,7 @@ def main():
                         reset_btn_height[0] <= mouse_pos[1] <= reset_btn_height[1]):
                     # reset board and user solution
                     board.draw_board(WINDOW)
-                    user.path = []
+                    user.clear_user_path()
                     pygame.display.update()
                     
     pygame.quit()
