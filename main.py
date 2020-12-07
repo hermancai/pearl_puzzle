@@ -18,9 +18,11 @@ def main():
     user = User()
     sidebar = Sidebar()
 
-    # draw puzzle grid, sidebar, and buttons
+    # draw puzzle grid and sidebar
     board.draw_board(WINDOW)
     sidebar.draw_sidebar(WINDOW)
+
+    # get dimensions of buttons in the sidebar
     verify_btn_width, verify_btn_height = sidebar.draw_button(WINDOW, 'VERIFY SOLUTION', BLACK)
     reset_btn_width, reset_btn_height = sidebar.draw_button(WINDOW, 'RESET', RED)
 
@@ -46,17 +48,23 @@ def main():
                 # user clicks on 'verify solution' button
                 if (verify_btn_width[0] <= mouse_pos[0] <= verify_btn_width[1] and 
                         verify_btn_height[0] <= mouse_pos[1] <= verify_btn_height[1]):
+
+                    # solution is correct. update text in sidebar
                     if verify_solution(user.path, board):
                         sidebar.hide_solution_text(WINDOW, verify_btn_width, verify_btn_height)
                         sidebar.display_solution_text('CORRECT', GREEN, WINDOW, verify_btn_width, verify_btn_height)
+
+                    # solution is incorrect. update text in sidebar
                     else:
                         sidebar.hide_solution_text(WINDOW, verify_btn_width, verify_btn_height)
                         sidebar.display_solution_text('INCORRECT', RED, WINDOW, verify_btn_width, verify_btn_height)
+
                     pygame.display.update()
 
                 # user clicks on the 'reset' button
                 if (reset_btn_width[0] <= mouse_pos[0] <= reset_btn_width[1] and 
                         reset_btn_height[0] <= mouse_pos[1] <= reset_btn_height[1]):
+                        
                     # reset board and user solution
                     board.draw_board(WINDOW)
                     user.clear_user_path()

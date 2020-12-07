@@ -63,8 +63,8 @@ class Sidebar():
         instructions.append('Click on a grid square to set your starting point.')
         instructions.append('Keep clicking on squares to make your path.')
         instructions.append('You can only move to adjacent squares (up, down, left, right).')
-        instructions.append('You can check if your solution is valid at any time.')
-        instructions.append('Click the Reset button to refresh the board.')
+        instructions.append('Click on "VERIFY SOLUTION" to verify at any time.')
+        instructions.append('Click on "RESET" button to refresh the board.')
 
         self.write_text(window, instructions)
 
@@ -79,7 +79,7 @@ class Sidebar():
 
         for string in text_list:  # create text objects
             window.blit(font.render(string, True, BLACK, WHITE), (left, self.space_from_top))
-            self.space_from_top += font_size + 2
+            self.space_from_top += font_size + 3
 
 
     # draw a button onto the sidebar given the button text and color
@@ -127,6 +127,7 @@ class Sidebar():
 
     # hide the solution text after clicking 'reset' button
     def hide_solution_text(self, window, rect_width, rect_height):
+        # draw a white rectangle over the solution text
         left, top = rect_width[1] + self.spacing, rect_height[0]
         width, height = rect_width[1] - rect_width[0], rect_height[1] - rect_height[0]
         rect = pygame.Rect(left, top, width, height)

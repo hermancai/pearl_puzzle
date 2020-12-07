@@ -2,11 +2,13 @@ import pygame
 from constants import SQUARE_SIZE, BLUE, GREEN, WIDTH, HEIGHT
 
 
+# this class keeps track of the user's moves on the board
 class User():
     def __init__(self):
         self.path = []
 
 
+    # clear the solution path after user clicks on 'reset' button
     def clear_user_path(self):
         self.path = []
 
@@ -14,7 +16,6 @@ class User():
     # convert mouse position into grid coords
     def get_coords_from_mouse(self, mouse_pos):
         x, y = mouse_pos
-
         row = y // SQUARE_SIZE
         col = x // SQUARE_SIZE
 
