@@ -1,4 +1,4 @@
-from constants import WHITE, BLACK
+from constants import BLACK
 
 # given a user path, return True if the path fits all conditions
 def verify_solution(path, board):
@@ -12,49 +12,41 @@ def verify_solution(path, board):
     path = path[:-1]  # end location is same as start
 
     # go through every move in the cycle
-    for move in path:  # O(#moves)
+    for index in range(len(path)):  # O(number of moves)
         # if the user's current location has a pearl
-        if move in board.pearl_locations:  # O(#pearls)
+        if path[index] in board.pearl_locations:  # O(number of pearls)
             visited_pearls_counter += 1
-            index = path.index(move)  # O(#moves)
 
-            if board.board[move[0]][move[1]].color == BLACK:  # if the pearl is black
+            # check conditions of the path based on the pearl color
+            # each element in path list is a tuple of two indices
+            if board.get_content_at(path[index][0], path[index][1]).color == BLACK:
                 if black_conditions(path, index) is False:
                     return False
             else:  # the pearl is white
                 if white_conditions(path, index) is False:
                     return False
 
-    # check that every pearl has been visited
-    if visited_pearls_counter == len(board.pearl_locations):
-        return True
-    else:
-        return False
+    # check if every pearl has been visited
+    return visited_pearls_counter == len(board.pearl_locations)
 
 
-# check if path turns at black pearl and goes straight before and after
+# check if path turns at black pearl and goes straight before AND after
 def black_conditions(path, index):
-    #index = path.index(move)  # O(#moves)
-
     if turned_at_point(path, index):
         if straight_at_point(path, index - 1) and straight_at_point(path, (index + 1) % len(path)):
             return True
-        
     return False
 
 
-# check if path goes straight through white pearl and turns before or after
+# check if path goes straight through white pearl and turns before OR after
 def white_conditions(path, index):
-    #index = path.index(move)  # O(#moves)
-
     if straight_at_point(path, index):
         if turned_at_point(path, index - 1) or turned_at_point(path, (index + 1) % len(path)):
-            return True
-        
+            return True    
     return False
 
 
-# check if the path makes at turn at the given location
+# check if the path makes a turn at the given location
 def turned_at_point(path, index):
     # approached pearl from left/right. Must go top/down next
     if path[index - 1][0] == path[index][0]:

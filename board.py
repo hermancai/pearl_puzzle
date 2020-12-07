@@ -11,6 +11,11 @@ class Board:
         self.place_pieces()
 
 
+    # return the content on the board given list indices
+    def get_content_at(self, x, y):
+        return self.board[x][y]
+
+
     # create a grid with borders
     def draw_grid(self, window):
         for x in range(ROWS):

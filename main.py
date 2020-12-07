@@ -1,5 +1,5 @@
 import pygame
-from constants import WIDTH, HEIGHT, WIN_WIDTH, WIN_HEIGHT, WHITE, BLACK, RED
+from constants import *
 from verification import *
 from board import Board
 from user import User
