@@ -1,5 +1,5 @@
 import pygame
-from constants import WIDTH, HEIGHT, WIN_WIDTH, WIN_HEIGHT, BLACK, WHITE, RED
+from assets.constants import WIDTH, HEIGHT, WIN_WIDTH, WIN_HEIGHT, BLACK, WHITE, RED
 
 
 # this class represents the sidebar of rules and buttons next to the puzzle

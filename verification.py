@@ -1,4 +1,4 @@
-from constants import BLACK
+from assets.constants import BLACK
 
 # given a user path, return True if the path fits all conditions
 def verify_solution(path, board):
