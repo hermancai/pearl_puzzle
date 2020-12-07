@@ -1,5 +1,5 @@
 import pygame
-from assets.constants import WIDTH, HEIGHT, WIN_WIDTH, WIN_HEIGHT, BLACK, WHITE, RED
+from assets.constants import *
 
 
 # this class represents the sidebar of rules and buttons next to the puzzle
@@ -31,7 +31,7 @@ class Sidebar():
     def write_title(self, window):
         # create text object
         string = 'Pearl Puzzle'
-        font = pygame.font.SysFont('arial', 24)
+        font = pygame.font.SysFont('arial', LARGE_FONT)
         title = font.render(string, True, BLACK, WHITE)
 
         x, y = pygame.font.Font.size(font, string)  # dimensions of text object
@@ -71,15 +71,14 @@ class Sidebar():
     
     # create text objects to render on the window given a list of strings
     def write_text(self, window, text_list):
-        font_size = 18
-        font = pygame.font.SysFont('arial', font_size)
+        font = pygame.font.SysFont('arial', SMALL_FONT)
 
         left = self.spacing + WIDTH  # set left margin
         self.space_from_top += self.spacing  # update spacing
 
         for string in text_list:  # create text objects
             window.blit(font.render(string, True, BLACK, WHITE), (left, self.space_from_top))
-            self.space_from_top += font_size + 3
+            self.space_from_top += SMALL_FONT + 3
 
 
     # draw a button onto the sidebar given the button text and color
@@ -87,7 +86,7 @@ class Sidebar():
         self.space_from_top += self.spacing
 
         # create text object
-        font = pygame.font.SysFont('arial', 20)
+        font = pygame.font.SysFont('arial', LARGE_FONT)
         button = font.render(button_text, True, color, WHITE)
 
         # get dimensions of text and button rectangle. draw rectangle
@@ -120,7 +119,7 @@ class Sidebar():
     # display on the sidebar whether the solution is correct
     def display_solution_text(self, text, color, window, rect_width, rect_height):
         # create and render text object
-        font = pygame.font.SysFont('arial', 20)
+        font = pygame.font.SysFont('arial', LARGE_FONT)
         display = font.render(text, True, color, WHITE)
         window.blit(display, (rect_width[1] + self.spacing, rect_height[0] + self.button_padding))
 
