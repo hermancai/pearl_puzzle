@@ -1,6 +1,7 @@
 import pygame
-from constants import *
-from piece import Piece
+from assets.constants import *
+from assets.piece import Piece
+
 
 
 # this class represents the puzzle board 

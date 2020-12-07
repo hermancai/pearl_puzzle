@@ -1,5 +1,5 @@
 import pygame
-from constants import SQUARE_SIZE, BLUE, GREEN, WIDTH, HEIGHT
+from assets.constants import SQUARE_SIZE, BLUE, GREEN, WIDTH, HEIGHT
 
 
 # this class keeps track of the user's moves on the board

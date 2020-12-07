@@ -1,5 +1,3 @@
-from constants import BLACK
-
 # given a user path, return True if the path fits all conditions
 def verify_solution(path, board):
     # if path is empty or path does not end at starting point
@@ -19,7 +17,7 @@ def verify_solution(path, board):
 
             # check conditions of the path based on the pearl color
             # each element in path list is a tuple of two indices
-            if board.get_content_at(path[index][0], path[index][1]).color == BLACK:
+            if board.get_content_at(path[index][0], path[index][1]).color == (0, 0, 0):
                 if black_conditions(path, index) is False:
                     return False
             else:  # the pearl is white

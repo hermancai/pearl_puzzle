@@ -1,9 +1,9 @@
 import pygame
-from constants import *
+from assets.constants import *
+from assets.board import Board
+from assets.user import User
+from assets.sidebar import Sidebar
 from verification import *
-from board import Board
-from user import User
-from sidebar import Sidebar
 
 FPS = 30
 WINDOW = pygame.display.set_mode((WIN_WIDTH, WIN_HEIGHT))
@@ -64,7 +64,7 @@ def main():
                 # user clicks on the 'reset' button
                 if (reset_btn_width[0] <= mouse_pos[0] <= reset_btn_width[1] and 
                         reset_btn_height[0] <= mouse_pos[1] <= reset_btn_height[1]):
-                        
+
                     # reset board and user solution
                     board.draw_board(WINDOW)
                     user.clear_user_path()
