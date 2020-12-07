@@ -10,7 +10,7 @@ class Piece:
         self.x = 0
         self.y = 0
         self.calc_position()
-        self.times_visited = 0
+        self.visited = False
 
 
     def __repr__(self):

@@ -7,7 +7,7 @@ from piece import Piece
 class Board:
     def __init__(self):
         self.board = [[0 for x in range(ROWS)] for i in range(COLS)]  # 2D array
-        self.pearls_list = []
+        self.pearl_locations = []
         self.place_pieces()
 
 
@@ -43,7 +43,7 @@ class Board:
     def add_piece(self, x, y, color):
         piece = Piece(x, y, color)
         self.board[x][y] = piece
-        self.pearls_list.append(piece)
+        self.pearl_locations.append((x, y))
 
 
     # draw the board and pearl pieces

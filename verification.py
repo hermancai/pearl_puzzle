@@ -4,4 +4,16 @@ def verify_solution(path, board):
     if len(path) == 0 or path[0] != path[-1]:
         return False
 
-    return True
+    visited_pearls_counter = 0
+
+    # user solution is now guaranteed to be a simple cycle
+    # go through every move in the cycle
+    for move in path[:-1]:
+        # if the user's current location has a pearl
+        if move in board.pearl_locations:
+            visited_pearls_counter += 1
+
+    if visited_pearls_counter == len(board.pearl_locations):
+        return True
+    
+    return False
