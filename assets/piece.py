@@ -1,4 +1,4 @@
-from constants import *
+from assets.constants import *
 
 
 # this class represents the pearls placed on the puzzle board
