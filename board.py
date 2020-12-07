@@ -21,14 +21,6 @@ class Board:
 
     # hardcode a puzzle instance
     def place_pieces(self):
-        # self.board[0][1] = Piece(0, 1, BLACK)
-        # self.board[2][1] = Piece(2, 1, BLACK)
-        # self.board[2][3] = Piece(2, 3, BLACK)
-        # self.board[2][4] = Piece(2, 4, BLACK)
-        # self.board[2][6] = Piece(2, 6, BLACK)
-        # self.board[0][3] = Piece(0, 3, WHITE)
-        # self.board[4][3] = Piece(4, 3, WHITE)
-        # self.board[4][6] = Piece(4, 6, WHITE)
         self.add_piece(0, 1, BLACK)
         self.add_piece(2, 1, BLACK)
         self.add_piece(2, 3, BLACK)

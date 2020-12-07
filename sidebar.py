@@ -50,8 +50,8 @@ class Sidebar():
         goals_list.append('Goal:')
         goals_list.append('Create a closed path that does not cross itself.')
         goals_list.append('Pass through each pearl once.')
-        goals_list.append('Turn at each black pearl and go straight before or after.')
-        goals_list.append('Go straight through each white pearl and turn before or after.')
+        goals_list.append('Turn at each black pearl and go straight before AND after.')
+        goals_list.append('Go straight through each white pearl and turn before OR after.')
 
         self.write_text(window, goals_list)
 
@@ -61,7 +61,7 @@ class Sidebar():
         instructions = []
         instructions.append('Instructions:')
         instructions.append('Click on a grid square to set your starting point.')
-        instructions.append('Keep clicking to squares to make your path.')
+        instructions.append('Keep clicking on squares to make your path.')
         instructions.append('You can only move to adjacent squares (up, down, left, right).')
         instructions.append('You can check if your solution is valid at any time.')
         instructions.append('Click the Reset button to refresh the board.')
