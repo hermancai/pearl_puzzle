@@ -1,6 +1,16 @@
 # pearl_puzzle
 An instance of the Pearl Puzzle using pygame
 
+https://repl.it/@hermancai/CS325-Portfolio-Project#README.md
+
+
+NOTES: 
+- The project is hosted on Repl.it but it may be easier to run from a terminal
+- An image of the puzzle solution is available in this directory
+- Constants (screen dimensions and font sizes) have been changed to fit a repl.it screen.
+- Constant values can be found and changed in /assets/constants.py
+
+
 How to run from Repl.it:
 https://repl.it/@hermancai/CS325-Portfolio-Project#README.md
 - Click on 'Run' on top of the page.
@@ -13,12 +23,7 @@ https://repl.it/@hermancai/CS325-Portfolio-Project#README.md
 
 How to run from a Windows terminal:
 - Download all files
+- Have Python 3 installed
 - Navigate to the directory containing main.py
 - Type 'pip install pygame' and press Enter
 - Type 'main.py' and press Enter
-
-
-NOTES: 
-- An image of the puzzle solution is availabe in this directory
-- Constants (screen dimensions and font sizes) have been changed to fit a repl.it screen.
-- Constant values can be found and changed in /assets/constants.py
