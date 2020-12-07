@@ -61,9 +61,9 @@ class User():
         if curr_point in self.path[1:-2]:
             return False
 
-        # cannot move to previous point
+        # cannot move to previous point or move after going back to the starting point
         if len(self.path) >= 3:
-            if curr_point == self.path[-3]:
+            if curr_point == self.path[-3] or self.path[0] == self.path[-2]:
                 return False
 
         # can only move to an adjacent square (up, down, left, right)
