@@ -1,5 +1,6 @@
 import pygame
 from constants import WIDTH, HEIGHT, WIN_WIDTH, WIN_HEIGHT, WHITE, BLACK, RED
+from verification import *
 from board import Board
 from user import User
 from sidebar import Sidebar
@@ -45,7 +46,7 @@ def main():
                 # user clicks on 'verify solution' button
                 if (verify_btn_width[0] <= mouse_pos[0] <= verify_btn_width[1] and 
                         verify_btn_height[0] <= mouse_pos[1] <= verify_btn_height[1]):
-                    print(user.path)
+                    print(verify_solution(user.path, board))
 
                 # user clicks on the 'reset' button
                 if (reset_btn_width[0] <= mouse_pos[0] <= reset_btn_width[1] and 

@@ -7,6 +7,7 @@ from piece import Piece
 class Board:
     def __init__(self):
         self.board = [[0 for x in range(ROWS)] for i in range(COLS)]  # 2D array
+        self.pearls_list = []
         self.place_pieces()
 
 
@@ -18,18 +19,32 @@ class Board:
                 pygame.draw.rect(window, WHITE, rect)
 
 
-    # create pearl pieces to place on the board
+    # hardcode a puzzle instance
     def place_pieces(self):
-        # hardcode a puzzle instance
-        self.board[0][1] = Piece(0, 1, BLACK)
-        self.board[2][1] = Piece(2, 1, BLACK)
-        self.board[2][3] = Piece(2, 3, BLACK)
-        self.board[2][4] = Piece(2, 4, BLACK)
-        self.board[2][6] = Piece(2, 6, BLACK)
-        self.board[0][3] = Piece(0, 3, WHITE)
-        self.board[4][3] = Piece(4, 3, WHITE)
-        self.board[4][6] = Piece(4, 6, WHITE)
+        # self.board[0][1] = Piece(0, 1, BLACK)
+        # self.board[2][1] = Piece(2, 1, BLACK)
+        # self.board[2][3] = Piece(2, 3, BLACK)
+        # self.board[2][4] = Piece(2, 4, BLACK)
+        # self.board[2][6] = Piece(2, 6, BLACK)
+        # self.board[0][3] = Piece(0, 3, WHITE)
+        # self.board[4][3] = Piece(4, 3, WHITE)
+        # self.board[4][6] = Piece(4, 6, WHITE)
+        self.add_piece(0, 1, BLACK)
+        self.add_piece(2, 1, BLACK)
+        self.add_piece(2, 3, BLACK)
+        self.add_piece(2, 4, BLACK)
+        self.add_piece(2, 6, BLACK)
+        self.add_piece(0, 3, WHITE)
+        self.add_piece(4, 3, WHITE)
+        self.add_piece(4, 6, WHITE)
     
+
+    # create and add pieces to the board
+    def add_piece(self, x, y, color):
+        piece = Piece(x, y, color)
+        self.board[x][y] = piece
+        self.pearls_list.append(piece)
+
 
     # draw the board and pearl pieces
     def draw_board(self, window):
