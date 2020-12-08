@@ -1,5 +1,3 @@
-# import pygame
-
 # randomly generate a pearl puzzle 
 # Change RANDOM_GENERATOR to False for a hardcoded instance
 RANDOM_GENERATOR = True
