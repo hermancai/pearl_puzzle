@@ -48,7 +48,6 @@ def main():
                 # user clicks on 'verify solution' button
                 if (verify_btn_width[0] <= mouse_pos[0] <= verify_btn_width[1] and 
                         verify_btn_height[0] <= mouse_pos[1] <= verify_btn_height[1]):
-
                     # solution is correct. update text in sidebar
                     if verify_solution(user.path, board):
                         sidebar.hide_solution_text(WINDOW, verify_btn_width, verify_btn_height)

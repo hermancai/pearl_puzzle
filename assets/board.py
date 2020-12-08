@@ -1,6 +1,7 @@
 import pygame
 from assets.constants import *
 from assets.piece import Piece
+from random import randint, getrandbits
 
 
 
@@ -9,7 +10,10 @@ class Board:
     def __init__(self):
         self.board = [[0 for x in range(ROWS)] for i in range(COLS)]  # 2D array
         self.pearl_locations = []
-        self.place_pieces()
+        if RANDOM_GENERATOR:
+            self.random_place_pieces()
+        else:
+            self.hardcode_place_pieces()
 
 
     # return the content on the board given list indices
@@ -26,7 +30,7 @@ class Board:
 
 
     # hardcode a puzzle instance
-    def place_pieces(self):
+    def hardcode_place_pieces(self):
         self.add_piece(0, 1, BLACK)
         self.add_piece(2, 1, BLACK)
         self.add_piece(2, 3, BLACK)
@@ -36,6 +40,26 @@ class Board:
         self.add_piece(4, 3, WHITE)
         self.add_piece(4, 6, WHITE)
     
+
+    # generate pearls randomly on board
+    def random_place_pieces(self):
+        for i in range(PEARL_COUNT):
+            # randomly select pearl color
+            if bool(getrandbits(1)):
+                color = BLACK
+            else:
+                color = WHITE
+            
+            # create coordinates for an unoccupied space on the board
+            new_location = False
+            while new_location is False:
+                x = randint(0, ROWS - 1)
+                y = randint(0, COLS - 1)
+                if (x, y) not in self.pearl_locations:
+                    new_location = True
+
+            self.add_piece(x, y, color)
+
 
     # create and add pieces to the board
     def add_piece(self, x, y, color):

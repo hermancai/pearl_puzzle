@@ -60,11 +60,11 @@ class Sidebar():
     def write_instructions(self, window):
         instructions = []
         instructions.append('Instructions:')
-        instructions.append('Click on a grid square to set your starting point.')
-        instructions.append('Keep clicking on squares to make your path.')
+        instructions.append('Click on grid squares to create your path.')
         instructions.append('You can only move to adjacent squares (up, down, left, right).')
-        instructions.append('Click on "VERIFY SOLUTION" to verify at any time.')
-        instructions.append('Click on "RESET" to refresh the board.')
+        instructions.append('If randomly generated, close and reopen the window to get a new puzzle.')
+        instructions.append('Click "VERIFY SOLUTION" to verify at any time.')
+        instructions.append('Click "RESET" to clear the path.')
 
         self.write_text(window, instructions)
 
