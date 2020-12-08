@@ -1,3 +1,4 @@
+import pygame
 from assets.constants import *
 
 

@@ -2,6 +2,7 @@
 def verify_solution(path, board):
     # if path is empty or path does not end at starting point
     if len(path) == 0 or path[0] != path[-1]:
+        print("FAILED: Path is empty or is not a cycle.")
         return False
 
     visited_pearls_counter = 0
@@ -33,6 +34,10 @@ def black_conditions(path, index):
     if turned_at_point(path, index):
         if straight_at_point(path, index - 1) and straight_at_point(path, (index + 1) % len(path)):
             return True
+        else:
+            print("FAILED: Go straight before and after a black pearl.")
+    else:
+        print("FAILED: Turn at a black pearl.")
     return False
 
 
@@ -40,7 +45,11 @@ def black_conditions(path, index):
 def white_conditions(path, index):
     if straight_at_point(path, index):
         if turned_at_point(path, index - 1) or turned_at_point(path, (index + 1) % len(path)):
-            return True    
+            return True
+        else:
+            print("FAILED: Turn before or after a white pearl.") 
+    else:
+        print("FAILED: Go straight through a white pearl.")
     return False
 
 
