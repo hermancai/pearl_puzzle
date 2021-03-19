@@ -1,7 +1,7 @@
-# randomly generate a pearl puzzle 
-# Change RANDOM_GENERATOR to False for a hardcoded instance
-RANDOM_GENERATOR = True
-# RANDOM_GENERATOR = False
+# RANDOM_GENERATOR = True
+RANDOM_GENERATOR = False
+
+# Only used if RANDOM_GENERATOR = True
 PEARL_COUNT = 4
 
 # dimensions
